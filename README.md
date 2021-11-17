@@ -104,3 +104,10 @@ Once that command runs, you can type `heroku open` to get a browser to open up l
 hey nerd
 
 buy some damn earplugs
+
+Site name options:
+
+Sleepy time earplugs - site name
+Ear hole pals - employees
+Ear canal elation - being a site member
+Check your drum - error handling
