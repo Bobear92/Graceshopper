@@ -1,5 +1,6 @@
 node_modules
 build
+.env
 
 
 admin user - cochlea password - eardrum

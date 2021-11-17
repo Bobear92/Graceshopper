@@ -71,9 +71,8 @@ async function populateInitialData() {
       console.log("Starting to create users...");
       try {
         const usersToCreate = [
-          { username: "cochlea", password: "eardrum" },
-          { username: "sandra", password: "sandra123" },
-          { username: "glamgal", password: "glamgal123" },
+          { username: "cochlea", password: "eardrum", admin: true },
+          { username: "spock", password: "finalFrontEar", admin: false },
         ];
         const users = await Promise.all(usersToCreate.map(createUser));
 
@@ -86,7 +85,37 @@ async function populateInitialData() {
       }
     }
 
+    async function createInitialInventory() {
+      console.log("Starting to create Inventory");
+      try {
+        const inventoryToCreate = [
+          {
+            name: "Big Old Plugs!",
+            description: "For someone with big old ear holes!",
+            price: 19.99,
+            count: 200,
+          },
+          {
+            name: "Tiny boy ear plugs",
+            description: "For someone with puny little ear holes",
+            price: 17.95,
+            count: 200,
+          },
+        ];
+        const inventory = await Promise.all(
+          inventoryToCreate.map(createInventory)
+        );
+
+        console.log("Inventory Created:");
+        console.log(inventory);
+        console.log("Finished creating inventory!");
+      } catch (error) {
+        console.error("Error creating Inventory");
+        throw error;
+      }
+    }
     createInitialUsers();
+    createInitialInventory();
   } catch (error) {
     throw error;
   }
