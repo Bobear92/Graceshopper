@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 
 import { getUser } from "../api";
 import { Login } from "./";
+import Header from "./Header";
 
 const App = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+
   // const [message, setMessage] = useState("");
 
   // useEffect(() => {
@@ -18,7 +21,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Login />
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
     </div>
   );
 };

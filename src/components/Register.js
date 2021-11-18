@@ -1,23 +1,30 @@
 import React, { useState } from "react";
-import { loginUser } from "../api";
+import { registerUser } from "../api";
 import { storeToken, storeUser } from "../auth";
 
-const Login = () => {
+const Register = ({ setLoggedIn }) => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
+  const admin = false;
+
   return (
-    <div className="Login-main">
+    <div className="register-interface-main">
       <form
-        id="login"
+        id="register"
         onSubmit={async (event) => {
           event.preventDefault();
 
           try {
-            const { token, user } = await loginUser(username, password);
-            console.log(token, user, "token and user!!");
+            const { token, user } = await registerUser(
+              username,
+              password,
+              admin
+            );
+
             storeToken(token);
             storeUser(user.username);
+            setLoggedIn(true);
 
             setUsername("");
             setPassword("");
@@ -28,7 +35,7 @@ const Login = () => {
           }
         }}
       >
-        <fieldset className="auth-component-input">
+        <fieldset className="register-username-input">
           <label htmlFor="username">Username</label>
           <input
             id="username"
@@ -36,15 +43,13 @@ const Login = () => {
             placeholder="Enter Username"
             value={username}
             onChange={(event) => {
-              console.log(event.target.value);
               setUsername(event.target.value);
             }}
           ></input>
         </fieldset>
 
-        <fieldset className="auth-component-input">
+        <fieldset className="register-password-input">
           <label htmlFor="password">Password</label>
-
           <input
             id="password"
             type="password"
@@ -56,13 +61,11 @@ const Login = () => {
           ></input>
         </fieldset>
 
-        <button className="auth-button" onSubmit={console.log("pressed")}>
-          Login
-        </button>
-        {/* {error && <p>{error.response}</p>} */}
+        <button className="register-interface-button">Submit</button>
+        {error ? <p>{error.response.data.message}</p> : null}
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Register;
