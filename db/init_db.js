@@ -4,22 +4,25 @@ const {
   // other db methods
 } = require("./index");
 
+const { createUser } = require("./users");
+const { createInventory } = require("./inventory");
+
 async function buildTables() {
   try {
     client.connect();
 
-    // drop tables in correct order
     async function dropTables() {
       console.log("Dropping All Tables...");
       // drop all tables, in the correct order
       try {
         await client.query(`
-          DROP TABLE IF EXISTS inventory;
-          DROP TABLE IF EXISTS users;
-          `);
+      DROP TABLE IF EXISTS inventory;
+      DROP TABLE IF EXISTS users;
+      `);
 
         console.log("Finished dropping tables");
       } catch (error) {
+        console.error(error);
         console.error("Error dropping tables");
       }
     }
@@ -32,23 +35,23 @@ async function buildTables() {
 
       try {
         await client.query(`
-          CREATE TABLE users (
-            id SERIAL PRIMARY KEY,
-            username varchar(255) UNIQUE NOT NULL,
-            password varchar(255) NOT NULL,
-            admin BOOLEAN DEFAULT 'false'
-          );
-        `);
+      CREATE TABLE users (
+        id SERIAL PRIMARY KEY,
+        username varchar(255) UNIQUE NOT NULL,
+        password varchar(255) NOT NULL,
+        admin BOOLEAN DEFAULT 'false'
+      );
+    `);
 
         await client.query(`
-            CREATE TABLE inventory (
-              id SERIAL PRIMARY KEY, 
-              name VARCHAR(255) UNIQUE NOT NULL,
-              description TEXT NOT NULL,
-              price INTEGER,
-              count INTEGER
-            )
-        `);
+        CREATE TABLE inventory (
+          id SERIAL PRIMARY KEY, 
+          name VARCHAR(255) UNIQUE NOT NULL,
+          description TEXT NOT NULL,
+          price INTEGER,
+          count INTEGER
+        )
+    `);
 
         console.log("Finished building tables");
       } catch (error) {
@@ -56,8 +59,8 @@ async function buildTables() {
       }
     }
 
-    dropTables();
-    createTables();
+    await dropTables();
+    await createTables();
   } catch (error) {
     throw error;
   }
@@ -65,8 +68,6 @@ async function buildTables() {
 
 async function populateInitialData() {
   try {
-    // create useful starting data
-
     async function createInitialUsers() {
       console.log("Starting to create users...");
       try {
@@ -74,6 +75,7 @@ async function populateInitialData() {
           { username: "cochlea", password: "eardrum", admin: true },
           { username: "spock", password: "finalFrontEar", admin: false },
         ];
+
         const users = await Promise.all(usersToCreate.map(createUser));
 
         console.log("Users created:");
@@ -92,13 +94,13 @@ async function populateInitialData() {
           {
             name: "Big Old Plugs!",
             description: "For someone with big old ear holes!",
-            price: 19.99,
+            price: 1999,
             count: 200,
           },
           {
             name: "Tiny boy ear plugs",
             description: "For someone with puny little ear holes",
-            price: 17.95,
+            price: 1795,
             count: 200,
           },
         ];
@@ -114,8 +116,8 @@ async function populateInitialData() {
         throw error;
       }
     }
-    createInitialUsers();
-    createInitialInventory();
+    await createInitialUsers();
+    await createInitialInventory();
   } catch (error) {
     throw error;
   }
