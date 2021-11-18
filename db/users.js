@@ -67,8 +67,29 @@ async function getUserById(id) {
   }
 }
 
+async function getUserByUsername(username) {
+  try {
+    const { rows } = await client.query(
+      `
+    SELECT * FROM users
+    WHERE username=$1;
+    `,
+      [username]
+    );
+    if (!rows || !rows.length) {
+      return null;
+    }
+
+    const [user] = rows;
+    return user;
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   createUser,
   getUser,
   getUserById,
+  getUserByUsername,
 };
