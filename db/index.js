@@ -16,5 +16,4 @@ const client = new Client({
 // export
 module.exports = {
   client,
-  // db methods
 };
