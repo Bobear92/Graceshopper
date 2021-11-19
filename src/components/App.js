@@ -1,28 +1,46 @@
 import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
-import { getUser } from "../api";
-import { Login } from "./";
-import Header from "./Header";
+import { Header, Home, User, Inventory } from "./";
+import { getToken } from "../auth";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
-  // const [message, setMessage] = useState("");
+  function isUserLoggedIn() {
+    const token = getToken();
 
-  // useEffect(() => {
-  //   getSomething()
-  //     .then(response => {
-  //       setMessage(response.message);
-  //     })
-  //     .catch(error => {
-  //       setMessage(error.message);
-  //     });
-  // });
+    if (token) {
+      setLoggedIn(true);
+    }
+  }
+
+  useEffect(() => {
+    isUserLoggedIn();
+  }, []);
 
   return (
-    <div className="App">
-      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-    </div>
+    <Router>
+      <div className="App">
+        <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+        <Switch>
+          <Route path="/products">
+            <Inventory />
+          </Route>
+          <Route path="/my-info">
+            <User />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 };
 

@@ -13,10 +13,32 @@ const Header = ({ loggedIn, setLoggedIn }) => {
     <div>
       {loggedIn ? (
         <>
-          <p>{user} is logged in</p>
+          <NavLink className="Head-home" to="/">
+            Home
+          </NavLink>
+          <NavLink className="Head-products" to="/products">
+            Products
+          </NavLink>
+          <NavLink className="loggedUser" to="/my-info">{`${user}`}</NavLink>
+          <NavLink
+            className="Head-Logged-in"
+            to="/"
+            onClick={() => {
+              localStorage.clear();
+              setLoggedIn(false);
+            }}
+          >
+            Log Out
+          </NavLink>
         </>
       ) : (
         <>
+          <NavLink className="Head-home" to="/">
+            Home
+          </NavLink>
+          <NavLink className="Head-products" to="/products">
+            Products
+          </NavLink>
           <div className="login-container">
             <button className="login-button" onClick={() => setLogToggle(true)}>
               Login
@@ -27,7 +49,7 @@ const Header = ({ loggedIn, setLoggedIn }) => {
             className="register-container"
             onClick={() => setRegisterToggle(true)}
           >
-            <button className="-register-button">Register</button>
+            <button className="register-button">Register</button>
             {registerToggle ? <Register setLoggedIn={setLoggedIn} /> : null}
           </div>
         </>
