@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Login, Register } from ".";
 import { getUser } from "../auth";
-
+import { Title } from ".";
+import "./Header.css";
 const Header = ({ loggedIn, setLoggedIn }) => {
   const [logToggle, setLogToggle] = useState(false);
   const [registerToggle, setRegisterToggle] = useState(false);
@@ -10,15 +11,16 @@ const Header = ({ loggedIn, setLoggedIn }) => {
   const user = getUser();
 
   return (
-    <div>
+    <div className="header-container">
       {loggedIn ? (
         <>
-          <NavLink className="Head-home" to="/">
+          <NavLink className="nav-button" to="/">
             Home
           </NavLink>
-          <NavLink className="Head-products" to="/products">
+          <NavLink className="nav-button" to="/products">
             Products
           </NavLink>
+          <Title />
           <NavLink className="loggedUser" to="/my-info">{`${user}`}</NavLink>
           <NavLink
             className="Head-Logged-in"
@@ -33,14 +35,15 @@ const Header = ({ loggedIn, setLoggedIn }) => {
         </>
       ) : (
         <>
-          <NavLink className="Head-home" to="/">
+          <NavLink className="nav-button" to="/">
             Home
           </NavLink>
-          <NavLink className="Head-products" to="/products">
+          <NavLink className="nav-button" to="/products">
             Products
           </NavLink>
+          <Title />
           <div className="login-container">
-            <button className="login-button" onClick={() => setLogToggle(true)}>
+            <button className="nav-button" onClick={() => setLogToggle(true)}>
               Login
             </button>
             {logToggle ? <Login setLoggedIn={setLoggedIn} /> : null}
@@ -49,7 +52,7 @@ const Header = ({ loggedIn, setLoggedIn }) => {
             className="register-container"
             onClick={() => setRegisterToggle(true)}
           >
-            <button className="register-button">Register</button>
+            <button className="nav-button">Register</button>
             {registerToggle ? <Register setLoggedIn={setLoggedIn} /> : null}
           </div>
         </>

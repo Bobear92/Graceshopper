@@ -21,9 +21,10 @@ const Register = ({ setLoggedIn }) => {
               password,
               admin
             );
-
+            console.log(user, "<<<<<<<Before register");
             storeToken(token);
-            storeUser(user.username);
+            storeUser(user);
+            console.log(user, "<<<<<<<After register");
             setLoggedIn(true);
 
             setUsername("");
