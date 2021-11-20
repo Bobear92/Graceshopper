@@ -6,11 +6,13 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { Header, Home, User, Inventory, Title } from "./";
+import { Header, Home, User, Inventory } from "./";
 import { getToken } from "../auth";
+import { getInventory } from "../api";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [allInventory, getAllInventory] = useState([]);
 
   function isUserLoggedIn() {
     const token = getToken();
@@ -20,8 +22,14 @@ const App = () => {
     }
   }
 
+  const handleInventory = async () => {
+    const data = await getInventory();
+    getAllInventory(data);
+  };
+
   useEffect(() => {
     isUserLoggedIn();
+    handleInventory();
   }, []);
 
   return (
@@ -30,7 +38,7 @@ const App = () => {
         <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         <Switch>
           <Route path="/products">
-            <Inventory />
+            <Inventory allInventory={allInventory} />
           </Route>
           <Route path="/my-info">
             <User />

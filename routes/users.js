@@ -4,8 +4,6 @@ const jwt = require("jsonwebtoken");
 const { getUser, getUserByUsername, createUser } = require("../db/users");
 const { JWT_SECRET = "innerEarCanal" } = process.env;
 
-console.log(JWT_SECRET, "secret");
-
 usersRouter.post("/login", async (req, res, next) => {
   const { username, password } = req.body;
   // request must have both
