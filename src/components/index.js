@@ -5,3 +5,4 @@ export { default as Register } from "./Register";
 export { default as Home } from "./Home";
 export { default as Inventory } from "./Inventory";
 export { default as User } from "./User";
+export { default as Title } from "./Title";

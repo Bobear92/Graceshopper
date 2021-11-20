@@ -6,7 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { Header, Home, User, Inventory } from "./";
+import { Header, Home, User, Inventory, Title } from "./";
 import { getToken } from "../auth";
 
 const App = () => {
