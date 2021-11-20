@@ -18,6 +18,21 @@ async function createInventory({ name, description, price, count }) {
   }
 }
 
+async function getInventory() {
+  try {
+    const { rows } = await client.query(
+      `
+    SELECT * FROM inventory;
+    `
+    );
+
+    return rows;
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   createInventory,
+  getInventory,
 };

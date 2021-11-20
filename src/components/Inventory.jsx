@@ -1,7 +1,19 @@
 import React, { useState } from "react";
+import { SingleProductCard } from ".";
+import { Fragment } from "react";
 
-const Inventory = () => {
-  return <p>This is the Inventory page.</p>;
+const Inventory = ({ allInventory }) => {
+  return (
+    <div>
+      {allInventory.map((product) => {
+        return (
+          <Fragment key={`products in inventory: ${product.id}`}>
+            <SingleProductCard product={product} />
+          </Fragment>
+        );
+      })}
+    </div>
+  );
 };
 
 export default Inventory;
