@@ -41,7 +41,7 @@ const App = () => {
             <Inventory allInventory={allInventory} />
           </Route>
           <Route path="/single-product/:id">
-            <SingleProduct />
+            <SingleProduct allInventory={allInventory} />
           </Route>
           <Route path="/my-info">
             <User />
