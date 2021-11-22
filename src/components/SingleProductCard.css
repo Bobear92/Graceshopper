@@ -1,0 +1,11 @@
+.single-product-card-main-container {
+  border: 1px solid black;
+  padding: 1rem;
+  width: fit-content;
+  margin: 1rem;
+}
+
+.single-product-card-inner-container {
+  display: flex;
+  justify-content: space-around;
+}

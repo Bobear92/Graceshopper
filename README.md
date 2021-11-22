@@ -78,6 +78,8 @@ In addition to `client:dev` and `server:dev`, you have access to `db:build` whic
 ```bash
 heroku create hopeful-project-name
 
+heroku config:set PGSSLMODE=no-verify
+
 heroku addons:create heroku-postgresql:hobby-dev
 ```
 
@@ -100,6 +102,8 @@ heroku run npm run db:build
 Which will run `npm run db:build` on the heroku server.
 
 Once that command runs, you can type `heroku open` to get a browser to open up locally with your full-stack application running remotely.
+
+Business:
 
 hey nerd
 
