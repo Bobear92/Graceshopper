@@ -4,9 +4,6 @@ import "./SingleProductCard.css";
 import { SingleProduct } from ".";
 
 const SingleProductCard = ({ product }) => {
-  console.log(product.price, "product price");
-  const price = product.price / 100;
-
   return (
     <div className="single-product-card-main-container">
       <Link
@@ -19,7 +16,9 @@ const SingleProductCard = ({ product }) => {
       </Link>
       <h3 className="single-product-card-description">{product.description}</h3>
       <div className="single-product-card-inner-container">
-        <p className="single-product-card-price">Price: $ {price}</p>
+        <p className="single-product-card-price">
+          Price: $ {product.price / 100}
+        </p>
         <p className="single-product-card-count">
           Items in stock: {product.count}
         </p>
