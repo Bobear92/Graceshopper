@@ -12,7 +12,8 @@ import { getInventory } from "../api";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [allInventory, getAllInventory] = useState([]);
+  const [allInventory, setAllInventory] = useState([]);
+  const [cart, setCart] = useState([]);
 
   function isUserLoggedIn() {
     const token = getToken();
@@ -24,7 +25,8 @@ const App = () => {
 
   const handleInventory = async () => {
     const data = await getInventory();
-    getAllInventory(data);
+    console.log(data, "<<<<<<<<<");
+    setAllInventory(data);
   };
 
   useEffect(() => {
@@ -41,10 +43,14 @@ const App = () => {
             <Inventory allInventory={allInventory} />
           </Route>
           <Route path="/single-product/:id">
-            <SingleProduct allInventory={allInventory} />
+            <SingleProduct
+              allInventory={allInventory}
+              cart={cart}
+              setCart={setCart}
+            />
           </Route>
           <Route path="/my-info">
-            <User />
+            <User cart={cart} setCart={setCart} />
           </Route>
           <Route path="/">
             <Home />
