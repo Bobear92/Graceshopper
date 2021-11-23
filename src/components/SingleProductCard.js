@@ -6,12 +6,7 @@ import { SingleProduct } from ".";
 const SingleProductCard = ({ product }) => {
   return (
     <div className="single-product-card-main-container">
-      <Link
-        to={`/single-product/${product.id}`}
-        onClick={() => {
-          <SingleProduct />;
-        }}
-      >
+      <Link to={`/single-product/${product.id}`}>
         <h1 className="single-product-card-name">{product.name}</h1>
       </Link>
       <h3 className="single-product-card-description">{product.description}</h3>
