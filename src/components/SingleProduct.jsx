@@ -17,7 +17,7 @@ const SingleProduct = ({ allInventory, setCart, cart }) => {
       <button
         className="single-product-button"
         onClick={() => {
-          setCart(product);
+          setCart([product, ...cart]);
         }}
       >
         Add to Cart
