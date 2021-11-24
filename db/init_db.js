@@ -39,7 +39,6 @@ async function buildTables() {
         id SERIAL PRIMARY KEY,
         username varchar(255) UNIQUE NOT NULL,
         password varchar(255) NOT NULL,
-        cart varchar(255),
         admin BOOLEAN DEFAULT 'false'
       );
     `);
@@ -53,6 +52,17 @@ async function buildTables() {
           count INTEGER
         )
     `);
+
+        await client.query(
+          `CREATE TABLE cart(
+              id SERIAL PRIMARY KEY,
+              "usersId" INTEGER REFERENCES users(id),
+              "inventoryId" INTEGER REFERENCES inventory(id),
+              basket VARCHAR(255),
+              completed BOOLEAN DEFAULT 'false'
+              UNIQUE("usersId", "inventoryId")
+            )`
+        );
 
         console.log("Finished building tables");
       } catch (error) {
