@@ -16,7 +16,8 @@ async function buildTables() {
       // drop all tables, in the correct order
       try {
         await client.query(`
-      DROP TABLE IF EXISTS inventory;
+      DROP TABLE IF EXISTS orders;
+      DROP TABLE IF EXISTS products;
       DROP TABLE IF EXISTS users;
       `);
 
@@ -44,25 +45,23 @@ async function buildTables() {
     `);
 
         await client.query(`
-        CREATE TABLE inventory (
+        CREATE TABLE products (
           id SERIAL PRIMARY KEY, 
           name VARCHAR(255) UNIQUE NOT NULL,
           description TEXT NOT NULL,
           price INTEGER,
           count INTEGER
-        )
+        );
     `);
 
-        await client.query(
-          `CREATE TABLE cart(
+        await client.query(`
+              CREATE TABLE orders (
               id SERIAL PRIMARY KEY,
-              "usersId" INTEGER REFERENCES users(id),
-              "inventoryId" INTEGER REFERENCES inventory(id),
-              basket VARCHAR(255),
-              completed BOOLEAN DEFAULT 'false'
-              UNIQUE("usersId", "inventoryId")
-            )`
-        );
+              "userId" INTEGER REFERENCES users(id),
+              "productIdArray" INTEGER[], 
+              completed BOOLEAN DEFAULT 'false',
+              "historicalPrice" INTEGER REFERENCES products(price), 
+            );`);
 
         console.log("Finished building tables");
       } catch (error) {
