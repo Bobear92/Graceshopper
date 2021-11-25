@@ -6,7 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { Header, Home, User, Inventory, SingleProduct } from "./";
+import { Header, Home, User, Inventory, SingleProduct, Payment } from "./";
 import { getToken } from "../auth";
 import { getInventory } from "../api";
 
@@ -39,6 +39,9 @@ const App = () => {
       <div className="App">
         <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         <Switch>
+          <Route path="/payment">
+            <Payment />
+          </Route>
           <Route path="/products">
             <Inventory allInventory={allInventory} />
           </Route>
