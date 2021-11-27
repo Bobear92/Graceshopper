@@ -36,7 +36,6 @@ const Login = ({ setLoggedIn }) => {
             placeholder="Enter Username"
             value={username}
             onChange={(event) => {
-              console.log(event.target.value);
               setUsername(event.target.value);
             }}
           ></input>

@@ -58,7 +58,7 @@ async function buildTables() {
               CREATE TABLE orders (
               id SERIAL PRIMARY KEY,
               "userId" INTEGER REFERENCES users(id),
-              "productIdArray" INTEGER[], 
+              "productIdArray" INTEGER ARRAY, 
               completed BOOLEAN DEFAULT 'false',
               "historicalPrice" INTEGER REFERENCES products(price), 
             );`);
