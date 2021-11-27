@@ -6,6 +6,7 @@ const {
 
 const { createUser } = require("./users");
 const { createInventory } = require("./inventory");
+const { dealWithCart } = require("./cart");
 
 async function buildTables() {
   try {
@@ -58,9 +59,9 @@ async function buildTables() {
               CREATE TABLE orders (
               id SERIAL PRIMARY KEY,
               "userId" INTEGER REFERENCES users(id),
-              "productIdArray" INTEGER ARRAY, 
+              "productArray" INTEGER ARRAY, 
               completed BOOLEAN DEFAULT 'false',
-              "historicalPrice" INTEGER REFERENCES products(price), 
+              "historicalPrice" INTEGER ARRAY
             );`);
 
         console.log("Finished building tables");
@@ -105,7 +106,6 @@ async function populateInitialData() {
             name: "Big Old Plugs!",
             description: "For someone with big old ear holes!",
             price: 1999,
-            count: 200,
           },
           {
             name: "Tiny boy ear plugs",
@@ -126,8 +126,35 @@ async function populateInitialData() {
         throw error;
       }
     }
+
+    async function createInitialOrder() {
+      console.log("Starting to create order");
+      try {
+        const orderToCreate = {
+          userId: 2,
+          cart: [1, 2],
+          completed: true,
+          historicalPrice: [1999, 1795],
+        };
+
+        const order = await dealWithCart(
+          orderToCreate.userId,
+          orderToCreate.cart,
+          orderToCreate.completed,
+          orderToCreate.historicalPrice
+        );
+        console.log("order created");
+        console.log(order);
+        console.log("Finished Creating Order!");
+      } catch (error) {
+        console.error("Error creating order");
+        throw error;
+      }
+    }
+
     await createInitialUsers();
     await createInitialInventory();
+    await createInitialOrder();
   } catch (error) {
     throw error;
   }
