@@ -7,7 +7,7 @@ async function dealWithCart(cart) {
   if (!cartData.length) return;
 
   try {
-    const {rows: orders} = await client.query(
+    const { rows: orders } = await client.query(
       `
         INSERT products.*, orders.completed, orders.historicalPrice
         INTO orders
@@ -45,4 +45,4 @@ for (const routine of routinesToReturn) {
 }
 return routinesToReturn;
 
-UPDATE table SET number_of_people = number_of_people - 3 WHERE id = 487364 
+// UPDATE table SET number_of_people = number_of_people - 3 WHERE id = 487364
