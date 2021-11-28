@@ -106,6 +106,7 @@ async function populateInitialData() {
             name: "Big Old Plugs!",
             description: "For someone with big old ear holes!",
             price: 1999,
+            count: 200,
           },
           {
             name: "Tiny boy ear plugs",
