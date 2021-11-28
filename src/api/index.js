@@ -36,12 +36,23 @@ export async function getInventory() {
   }
 }
 
-export async function storeCart(cart, currentPriceArray) {
+export async function storeCart(user, cart, currentPriceArray) {
   try {
     const { data } = await axios.post(`${BASE}/cart`, {
       user,
       cart,
       currentPriceArray,
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function getUserByUsername(username) {
+  try {
+    const { data } = axios.get(`${BASE}/users`, {
+      username,
     });
     return data;
   } catch (error) {
