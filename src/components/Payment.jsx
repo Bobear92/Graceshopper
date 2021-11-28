@@ -9,6 +9,8 @@ const Payment = ({ cart, setCart }) => {
   let priceArray = [];
   const username = getUser();
   const user = await getUserByUsername(username);
+  const userId = user.id;
+  const completed = true;
   console.log(user, "please!");
 
   return (
@@ -31,7 +33,7 @@ const Payment = ({ cart, setCart }) => {
       <button
         className="payment-button"
         onClick={() => {
-          await storeCart(user, idArray, priceArray);
+          await storeCart(userId, idArray, completed, priceArray);
           setCart([]);
           totalPrice = 0;
           idArray = [];

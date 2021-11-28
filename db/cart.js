@@ -18,23 +18,4 @@ async function dealWithCart(userId, cart, completed, currentPriceArray) {
   }
 }
 
-// this one stores the info into order from the front end
-async function storeCart(user, cart, currentPriceArray) {
-  const userId = user.id;
-  try {
-    const {
-      rows: [order],
-    } = await client.query(
-      `
-        INSERT INTO orders("userId", "productArray", completed, "historicalPrice")
-        Values($1, $2)
-                `,
-      [userId, cart, true, currentPriceArray]
-    );
-    return order;
-  } catch (error) {
-    throw error;
-  }
-}
-
-module.exports = { dealWithCart, storeCart };
+module.exports = { dealWithCart };
