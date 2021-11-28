@@ -21,9 +21,8 @@ async function dealWithCart(userId, cart, completed, currentPriceArray) {
 }
 
 // this one stores the info into order from the front end
-async function storeCart(cart, currentPriceArray) {
-  const username = getUser();
-  const user = getUserByUsername(username);
+async function storeCart(user, cart, currentPriceArray) {
+  const userInfo = getUserByUsername(user);
   try {
     const {
       rows: [order],
@@ -32,7 +31,7 @@ async function storeCart(cart, currentPriceArray) {
         INSERT INTO orders("userId", "productArray", completed, "historicalPrice")
         Values($1, $2)
                 `,
-      [user.id, cart, true, currentPriceArray]
+      [userInfo.id, cart, true, currentPriceArray]
     );
     return order;
   } catch (error) {

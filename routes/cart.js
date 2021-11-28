@@ -3,10 +3,11 @@ const cartRouter = express.Router();
 const { storeCart } = require("../db/cart");
 
 cartRouter.post("/", async (req, res, next) => {
-  const { cart, currentPriceArray } = req.body;
+  const { user, cart, currentPriceArray } = req.body;
   try {
     if ((cart, currentPriceArray)) {
       const addCart = await storeCart({
+        user,
         cart,
         currentPriceArray,
       });
