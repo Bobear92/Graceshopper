@@ -5,7 +5,7 @@ const { storeCart } = require("../db/cart");
 cartRouter.post("/", async (req, res, next) => {
   const { user, cart, currentPriceArray } = req.body;
   try {
-    if ((cart, currentPriceArray)) {
+    if ((user, cart, currentPriceArray)) {
       const addCart = await storeCart({
         user,
         cart,

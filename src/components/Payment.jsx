@@ -1,13 +1,15 @@
 import React, { Fragment } from "react";
 import { SingleProductCard } from ".";
-import { storeCart } from "../api";
+import { getUserByUsername, storeCart } from "../api";
 import { getUser } from "../auth";
 
 const Payment = ({ cart, setCart }) => {
   let totalPrice = 0;
   let idArray = [];
   let priceArray = [];
-  const user = getUser();
+  const username = getUser();
+  const user = await getUserByUsername(username);
+  console.log(user, "please!");
 
   return (
     <div className="payment-page-main-container">

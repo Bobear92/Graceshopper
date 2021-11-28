@@ -1,6 +1,4 @@
-const { getUser } = require("../src/auth"); // Problem with this import everything breaks after i do, but i need here can't import getUserByUsername into front end.
 const { client } = require("./index");
-const { getUserByUsername } = require("./users");
 
 // this one lets us store info with some dummy data
 async function dealWithCart(userId, cart, completed, currentPriceArray) {
@@ -22,7 +20,7 @@ async function dealWithCart(userId, cart, completed, currentPriceArray) {
 
 // this one stores the info into order from the front end
 async function storeCart(user, cart, currentPriceArray) {
-  const userInfo = getUserByUsername(user);
+  const userId = user.id;
   try {
     const {
       rows: [order],
@@ -31,7 +29,7 @@ async function storeCart(user, cart, currentPriceArray) {
         INSERT INTO orders("userId", "productArray", completed, "historicalPrice")
         Values($1, $2)
                 `,
-      [userInfo.id, cart, true, currentPriceArray]
+      [userId, cart, true, currentPriceArray]
     );
     return order;
   } catch (error) {
