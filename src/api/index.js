@@ -52,7 +52,7 @@ export async function storeCart(user, cart, completed, currentPriceArray) {
 
 export async function getUserByUsername(username) {
   try {
-    const { data } = axios.get(`${BASE}/users`, {
+    const { data } = await axios.get(`${BASE}/users`, {
       username,
     });
     return data;
