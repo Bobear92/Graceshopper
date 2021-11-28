@@ -1,14 +1,15 @@
 const express = require("express");
 const cartRouter = express.Router();
-const { storeCart } = require("../db/cart");
+const { dealWithCart } = require("../db/cart");
 
 cartRouter.post("/", async (req, res, next) => {
-  const { user, cart, currentPriceArray } = req.body;
+  const { userId, cart, completed, currentPriceArray } = req.body;
   try {
-    if ((user, cart, currentPriceArray)) {
-      const addCart = await storeCart({
-        user,
+    if ((user, cart, completed, currentPriceArray)) {
+      const addCart = await dealWithCart({
+        userId,
         cart,
+        completed,
         currentPriceArray,
       });
       res.send(addCart);
