@@ -39,6 +39,7 @@ export async function getInventory() {
 export async function storeCart(cart, currentPriceArray) {
   try {
     const { data } = await axios.post(`${BASE}/cart`, {
+      user,
       cart,
       currentPriceArray,
     });

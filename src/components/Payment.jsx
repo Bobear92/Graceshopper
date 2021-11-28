@@ -1,11 +1,13 @@
 import React, { Fragment } from "react";
 import { SingleProductCard } from ".";
 import { storeCart } from "../api";
+import { getUser } from "../auth";
 
 const Payment = ({ cart, setCart }) => {
   let totalPrice = 0;
   let idArray = [];
   let priceArray = [];
+  const user = getUser();
 
   return (
     <div className="payment-page-main-container">
@@ -27,7 +29,7 @@ const Payment = ({ cart, setCart }) => {
       <button
         className="payment-button"
         onClick={() => {
-          await storeCart(idArray, priceArray);
+          await storeCart(user, idArray, priceArray);
           setCart([]);
           totalPrice = 0;
           idArray = [];
