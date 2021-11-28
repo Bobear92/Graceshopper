@@ -4,9 +4,7 @@ import { NavLink } from "react-router-dom";
 import "./User.css";
 import { SingleProductCard } from ".";
 
-const User = ({ cart, setCart }) => {
-  console.log(cart, "this is the cart!");
-
+const User = ({ cart }) => {
   return (
     <>
       <div className="cart-main-container">Cart</div>

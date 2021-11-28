@@ -53,4 +53,7 @@ apiRouter.use("/users", usersRouter);
 const inventoryRouter = require("./inventory");
 apiRouter.use("/inventory", inventoryRouter);
 
+const cartRouter = require("./cart");
+apiRouter.use("/cart", cartRouter);
+
 module.exports = apiRouter;

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./SingleProductCard.css";
-import { SingleProduct } from ".";
 
 const SingleProductCard = ({ product }) => {
   return (

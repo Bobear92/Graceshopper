@@ -12,12 +12,7 @@
 //       \____/
 
 import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { Header, Home, User, Inventory, SingleProduct, Payment } from "./";
 import { getToken } from "../auth";
@@ -38,7 +33,6 @@ const App = () => {
 
   const handleInventory = async () => {
     const data = await getInventory();
-    console.log(data, "<<<<<<<<<");
     setAllInventory(data);
   };
 
@@ -53,7 +47,7 @@ const App = () => {
         <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         <Switch>
           <Route path="/payment">
-            <Payment />
+            <Payment cart={cart} setCart={setCart} />
           </Route>
           <Route path="/products">
             <Inventory allInventory={allInventory} />
@@ -66,7 +60,7 @@ const App = () => {
             />
           </Route>
           <Route path="/my-info">
-            <User cart={cart} setCart={setCart} />
+            <User cart={cart} />
           </Route>
           <Route path="/">
             <Home />

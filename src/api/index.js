@@ -35,3 +35,15 @@ export async function getInventory() {
     throw error;
   }
 }
+
+export async function storeCart(cart, currentPriceArray) {
+  try {
+    const { data } = await axios.post(`${BASE}/cart`, {
+      cart,
+      currentPriceArray,
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
