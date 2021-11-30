@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE = "http://localhost:5000/api";
+// const BASE = "http://localhost:5000/api";
+const BASE = "/api";
 
 export async function loginUser(username, password) {
   try {
