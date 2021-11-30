@@ -4,14 +4,15 @@ const { dealWithCart } = require("../db/cart");
 
 cartRouter.post("/", async (req, res, next) => {
   const { userId, cart, completed, currentPriceArray } = req.body;
+
   try {
-    if ((user, cart, completed, currentPriceArray)) {
-      const addCart = await dealWithCart({
+    if ((userId, cart, completed, currentPriceArray)) {
+      const addCart = await dealWithCart(
         userId,
         cart,
         completed,
-        currentPriceArray,
-      });
+        currentPriceArray
+      );
       res.send(addCart);
     } else {
       res.send({ message: "Missing fields" });

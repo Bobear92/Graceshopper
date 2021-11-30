@@ -1,17 +1,23 @@
-import React, { Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { SingleProductCard } from ".";
 import { getUserByUsername, storeCart } from "../api";
 import { getUser } from "../auth";
 
 const Payment = ({ cart, setCart }) => {
+  const [userId, setUserId] = useState(0);
   let totalPrice = 0;
   let idArray = [];
   let priceArray = [];
   const username = getUser();
-  const user = await getUserByUsername(username);
-  const userId = user.id;
   const completed = true;
-  console.log(user, "please!");
+
+  const handleUser = async () => {
+    const user = await getUserByUsername(username);
+    setUserId(user.id);
+  };
+  useEffect(() => {
+    handleUser();
+  }, []);
 
   return (
     <div className="payment-page-main-container">
@@ -32,12 +38,17 @@ const Payment = ({ cart, setCart }) => {
       </div>
       <button
         className="payment-button"
-        onClick={() => {
-          await storeCart(userId, idArray, completed, priceArray);
-          setCart([]);
-          totalPrice = 0;
-          idArray = [];
-          priceArray = [];
+        onClick={async (event) => {
+          event.preventDefault();
+          try {
+            await storeCart(userId, idArray, completed, priceArray);
+            setCart([]);
+            totalPrice = 0;
+            idArray = [];
+            priceArray = [];
+          } catch (error) {
+            throw error;
+          }
         }}
       >
         Pay
