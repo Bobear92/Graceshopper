@@ -1,4 +1,6 @@
 // Connect to DB
+// require("dotenv").config();
+
 const { Client } = require("pg");
 const DB_NAME = "sleepyTimeEarplugs";
 const DB_URL =
