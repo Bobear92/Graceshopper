@@ -1,4 +1,5 @@
 import React, { useState, Fragment, useEffect } from "react";
+import "./Payment.css";
 import { SingleProductCard } from ".";
 import { getUserByUsername, storeCart } from "../api";
 import { getUser } from "../auth";
