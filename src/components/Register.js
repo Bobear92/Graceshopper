@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Register.css";
 import { registerUser } from "../api";
 import { storeToken, storeUser } from "../auth";
 

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const BASE = "http://localhost:5000/api";
-const BASE = "/api";
+const BASE = "http://localhost:5000/api"; // When in development have this one running
+// const BASE = "/api"; // when deploying to heroku have this one running
 
 export async function loginUser(username, password) {
   try {
@@ -38,11 +38,6 @@ export async function getInventory() {
 }
 
 export async function storeCart(userId, cart, completed, currentPriceArray) {
-  // console.log("can i see this?");
-  // console.log(userId, "userId");
-  // console.log(cart, "product id array");
-  // console.log(completed, "boolean");
-  // console.log(currentPriceArray, "price array");
   try {
     const { data } = await axios.post(`${BASE}/cart`, {
       userId,
