@@ -1,0 +1,52 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.page-title {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  background: rgb(98, 80, 145);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.493);
+  border: 5px solid rgb(73, 56, 116);
+  width: 28%;
+  margin: 28px;
+}
+.register-interface-main {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  background: rgb(98, 80, 145);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.493);
+  border: 5px solid rgb(73, 56, 116);
+  width: 33%;
+  margin: 28px;
+}
+
+.register-interface-button {
+  display: flex;
+  justify-content: center;
+  color: rgb(252, 214, 0);
+  padding: 8px;
+  font-family: ubuntu;
+  border-radius: 5%;
+  text-decoration-line: none;
+  background-color: rgb(55, 39, 73);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  margin: 3px;
+  height: 30px;
+  width: 60px;
+}
+
+label {
+  color: rgb(252, 214, 0);
+}
+
+.register-input {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px;
+  border: 5px solid rgb(73, 56, 116);
+}

@@ -43,18 +43,14 @@ const Header = ({ loggedIn, setLoggedIn }) => {
           </NavLink>
           <Title />
           <div className="login-container">
-            <button className="nav-button" onClick={() => setLogToggle(true)}>
+            <NavLink className="nav-button" to="/login">
               Login
-            </button>
-            {logToggle ? <Login setLoggedIn={setLoggedIn} /> : null}
+            </NavLink>
           </div>
-          <div
-            className="register-container"
-            onClick={() => setRegisterToggle(true)}
-          >
-            <button className="nav-button">Register</button>
-            {registerToggle ? <Register setLoggedIn={setLoggedIn} /> : null}
-          </div>
+
+          <NavLink className="nav-button" to="/register">
+            Register
+          </NavLink>
         </>
       )}
     </div>
