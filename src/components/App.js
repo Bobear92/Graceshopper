@@ -14,9 +14,18 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { Header, Home, User, Inventory, SingleProduct, Payment } from "./";
+import {
+  Header,
+  Home,
+  User,
+  Inventory,
+  SingleProduct,
+  Payment,
+  Login,
+} from "./";
 import { getToken } from "../auth";
 import { getInventory } from "../api";
+import Register from "./Register";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -62,6 +71,13 @@ const App = () => {
           <Route path="/my-info">
             <User cart={cart} />
           </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+
           <Route path="/">
             <Home />
           </Route>
