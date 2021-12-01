@@ -66,7 +66,7 @@ const Register = ({ setLoggedIn }) => {
           </fieldset>
 
           <button className="register-interface-button">Submit</button>
-          {error ? <p>{error.response.data.message}</p> : null}
+          {/* {error ? <p>{error.response.data.message}</p> : null} */}
         </form>
       </div>
     </div>
