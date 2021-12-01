@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router";
 import "./SingleProduct.css";
+import { updateProductCount } from "../api";
 
 const SingleProduct = ({ allInventory, setCart, cart }) => {
   const { id } = useParams();
@@ -16,8 +17,14 @@ const SingleProduct = ({ allInventory, setCart, cart }) => {
       </div>
       <button
         className="single-product-button"
-        onClick={() => {
-          setCart([product, ...cart]);
+        onClick={async (event) => {
+          event.preventDefault();
+          try {
+            setCart([product, ...cart]);
+            // await updateProductCount(product.id, product.count - 1);
+          } catch (error) {
+            throw error;
+          }
         }}
       >
         Add to Cart
