@@ -32,7 +32,44 @@ async function getInventory() {
   }
 }
 
+async function getInventoryById(id) {
+  try {
+    const {
+      rows: [product],
+    } = await client.query(
+      `
+      SELECT * FROM products
+      WHERE id=$1
+      `,
+      id
+    );
+    return product;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function updateInventoryCount({ id, count }) {
+  try {
+    const {
+      rows: [product],
+    } = await client.query(
+      `
+    UPDATE products
+    SET ${count}
+    WHERE id=$1
+    RETURNING *`,
+      id
+    );
+    return product;
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   createInventory,
   getInventory,
+  updateInventoryCount,
+  getInventoryById,
 };

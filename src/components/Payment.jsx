@@ -27,6 +27,7 @@ const Payment = ({ cart, setCart }) => {
         totalPrice += item.price;
         idArray.push(item.id);
         priceArray.push(item.price);
+
         return (
           <Fragment key={`items in cart: ${item.id}`}>
             <SingleProductCard product={item} />

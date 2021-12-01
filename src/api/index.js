@@ -37,6 +37,30 @@ export async function getInventory() {
   }
 }
 
+export async function getInventoryById(id) {
+  try {
+    const { data } = await axios.post(`${BASE}/inventory/product`, {
+      id,
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function updateProductCount(id, count) {
+  // console.log(id, count, "id and count"); we are getting this.
+  try {
+    const { data } = await axios.patch(`${BASE}/inventory${id}`, {
+      count,
+    });
+    // console.log(data, "data in api"); not getting this.
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export async function storeCart(userId, cart, completed, currentPriceArray) {
   try {
     const { data } = await axios.post(`${BASE}/cart`, {
@@ -44,6 +68,17 @@ export async function storeCart(userId, cart, completed, currentPriceArray) {
       cart,
       completed,
       currentPriceArray,
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function history(userId) {
+  try {
+    const { data } = await axios.post(`${BASE}/cart/history`, {
+      userId,
     });
     return data;
   } catch (error) {

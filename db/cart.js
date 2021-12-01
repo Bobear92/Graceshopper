@@ -18,4 +18,19 @@ async function dealWithCart(userId, cart, completed, currentPriceArray) {
   }
 }
 
-module.exports = { dealWithCart };
+async function getHistoryByUser(userId) {
+  try {
+    const { rows } = await client.query(
+      `
+      SELECT * FROM orders
+      WHERE "userId" = $1 AND completed = 'true'
+      `,
+      [userId]
+    );
+    return rows;
+  } catch (error) {
+    throw error;
+  }
+}
+
+module.exports = { dealWithCart, getHistoryByUser };

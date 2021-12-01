@@ -1,6 +1,6 @@
 const express = require("express");
 const cartRouter = express.Router();
-const { dealWithCart } = require("../db/cart");
+const { dealWithCart, getHistoryByUser } = require("../db/cart");
 
 cartRouter.post("/", async (req, res, next) => {
   const { userId, cart, completed, currentPriceArray } = req.body;
@@ -14,6 +14,21 @@ cartRouter.post("/", async (req, res, next) => {
         currentPriceArray
       );
       res.send(addCart);
+    } else {
+      res.send({ message: "Missing fields" });
+    }
+  } catch ({ name, message }) {
+    next({ name, message });
+  }
+});
+
+cartRouter.post("/history", async (req, res, next) => {
+  const { userId } = req.body;
+
+  try {
+    if (userId) {
+      const history = await getHistoryByUser(userId);
+      res.send(history);
     } else {
       res.send({ message: "Missing fields" });
     }
