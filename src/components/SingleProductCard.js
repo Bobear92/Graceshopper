@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./SingleProductCard.css";
 
 const SingleProductCard = ({ product }) => {
+  console.log(product, "product in single ");
   return (
     <div className="single-product-card-main-container">
       <Link to={`/single-product/${product.id}`}>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import "./User.css";
-import { SingleProductCard, SingleHistoryCard } from ".";
+import { SingleProductCard, SingleHistoryCard, OrderHistory } from ".";
 import { getUserByUsername, history } from "../api";
 import { getUser } from "../auth";
 
@@ -20,10 +20,10 @@ const User = ({ cart }) => {
   };
   useEffect(() => {
     handleUser();
+  }, []);
+  useEffect(() => {
     handleHistory();
   }, [userId]);
-
-  console.log(orderHistory, "history in users");
 
   return (
     <>
@@ -44,7 +44,7 @@ const User = ({ cart }) => {
           ? orderHistory.map((item) => {
               return (
                 <Fragment key={`history: ${item.id}`}>
-                  <SingleHistoryCard history={item} />
+                  <OrderHistory history={item} />
                 </Fragment>
               );
             })
