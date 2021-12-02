@@ -69,7 +69,7 @@ const App = () => {
             />
           </Route>
           <Route path="/my-info">
-            <User cart={cart} allInventory={allInventory} />
+            <User cart={cart} />
           </Route>
           <Route path="/login">
             <Login />

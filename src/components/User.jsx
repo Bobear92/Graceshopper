@@ -5,7 +5,7 @@ import { SingleProductCard, SingleHistoryCard, OrderHistory } from ".";
 import { getUserByUsername, history } from "../api";
 import { getUser } from "../auth";
 
-const User = ({ cart, allInventory }) => {
+const User = ({ cart }) => {
   const [userId, setUserId] = useState(0);
   const [orderHistory, setOrderHistory] = useState([]);
   const username = getUser();
@@ -24,8 +24,6 @@ const User = ({ cart, allInventory }) => {
   useEffect(() => {
     handleHistory();
   }, [userId]);
-
-  // console.log(orderHistory, "history in users");
 
   return (
     <>
@@ -46,7 +44,7 @@ const User = ({ cart, allInventory }) => {
           ? orderHistory.map((item) => {
               return (
                 <Fragment key={`history: ${item.id}`}>
-                  <OrderHistory history={item} allInventory={allInventory} />
+                  <OrderHistory history={item} />
                 </Fragment>
               );
             })
