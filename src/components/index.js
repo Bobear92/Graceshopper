@@ -10,3 +10,4 @@ export { default as SingleProductCard } from "./SingleProductCard";
 export { default as SingleProduct } from "./SingleProduct";
 export { default as Payment } from "./Payment";
 export { default as SingleHistoryCard } from "./SingleHistoryCard";
+export { default as OrderHistory } from "./OrderHistory";

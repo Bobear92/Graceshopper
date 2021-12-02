@@ -33,16 +33,17 @@ async function getInventory() {
 }
 
 async function getInventoryById(id) {
+  console.log(id, "id in db");
   try {
     const {
       rows: [product],
     } = await client.query(
       `
       SELECT * FROM products
-      WHERE id=$1
-      `,
-      id
+      WHERE id=${id}
+      `
     );
+    console.log(product, "product in db");
     return product;
   } catch (error) {
     throw error;
