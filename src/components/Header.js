@@ -21,9 +21,9 @@ const Header = ({ loggedIn, setLoggedIn }) => {
             Products
           </NavLink>
           <Title />
-          <NavLink className="loggedUser" to="/my-info">{`${user}`}</NavLink>
+          <NavLink className="nav-button" to="/my-info">{`${user}`}</NavLink>
           <NavLink
-            className="Head-Logged-in"
+            className="nav-button"
             to="/"
             onClick={() => {
               localStorage.clear();

@@ -17,7 +17,7 @@ const Login = ({ setLoggedIn }) => {
         <form
           id="login"
           onSubmit={async (event) => {
-            event.preventDefault();
+            // event.preventDefault();
 
             try {
               const { token, user } = await loginUser(username, password);
