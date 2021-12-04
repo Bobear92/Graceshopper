@@ -21,7 +21,7 @@ const SingleProduct = ({ allInventory, setCart, cart }) => {
           event.preventDefault();
           try {
             setCart([product, ...cart]);
-            // await updateProductCount(product.id, product.count - 1);
+            await updateProductCount(product.id, product.count - 1);
           } catch (error) {
             throw error;
           }

@@ -33,7 +33,6 @@ async function getInventory() {
 }
 
 async function getInventoryById(id) {
-  console.log(id, "id in db");
   try {
     const {
       rows: [product],
@@ -43,7 +42,6 @@ async function getInventoryById(id) {
       WHERE id=${id}
       `
     );
-    console.log(product, "product in db");
     return product;
   } catch (error) {
     throw error;
@@ -51,6 +49,7 @@ async function getInventoryById(id) {
 }
 
 async function updateInventoryCount({ id, count }) {
+  // getting id and count all the way to here. problem is somewhere in the try.
   try {
     const {
       rows: [product],
@@ -58,8 +57,8 @@ async function updateInventoryCount({ id, count }) {
       `
     UPDATE products
     SET ${count}
-    WHERE id=$1
-    RETURNING *`,
+    WHERE id=${id}
+    RETURNING *;`,
       id
     );
     return product;

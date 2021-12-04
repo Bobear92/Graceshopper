@@ -30,7 +30,6 @@ inventoryRouter.post("/product", async (req, res, next) => {
   try {
     // get to here
     const product = await getInventoryById(id);
-    console.log(product, "product in routes");
     if (product) {
       res.send(product);
     } else {
@@ -44,13 +43,11 @@ inventoryRouter.post("/product", async (req, res, next) => {
   }
 });
 
-inventoryRouter.patch("/:productId", async (req, res, next) => {
-  const { productId } = req.params;
-  const { count } = req.body;
-  // console.log(productId, count, "id and count in routes");  can't see this.
+inventoryRouter.patch("/", async (req, res, next) => {
+  const { id, count } = req.body;
   try {
     const updateCount = await updateInventoryCount({
-      id: productId,
+      id,
       count,
     });
     res.send(updateCount);
