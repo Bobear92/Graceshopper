@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Login, Register } from ".";
 import { getUser } from "../auth";
+import { getUserByUsername } from "../api";
 import { Title } from ".";
 import "./Header.css";
 const Header = ({ loggedIn, setLoggedIn }) => {
-  const [logToggle, setLogToggle] = useState(false);
-  const [registerToggle, setRegisterToggle] = useState(false);
+  const [user, setUser] = useState({});
+  const [admin, setAdmin] = useState(false);
+  const username = getUser();
 
-  const user = getUser();
+  const handleUser = async () => {
+    const user = await getUserByUsername(username);
+    setUser(user);
+    if (user.admin) {
+      setAdmin(true);
+    }
+  };
+  useEffect(() => {
+    handleUser();
+  }, []);
 
   return (
     <div className="header-container">
@@ -21,7 +31,17 @@ const Header = ({ loggedIn, setLoggedIn }) => {
             Products
           </NavLink>
           <Title />
-          <NavLink className="nav-button" to="/my-info">{`${user}`}</NavLink>
+          <NavLink
+            className="nav-button"
+            to="/my-info"
+          >{`${username}`}</NavLink>
+          {admin ? (
+            <>
+              <NavLink className="nav-button" to="/admin">
+                Admin
+              </NavLink>
+            </>
+          ) : null}
           <NavLink
             className="nav-button"
             to="/"

@@ -1,8 +1,24 @@
 const express = require("express");
 const usersRouter = express.Router();
 const jwt = require("jsonwebtoken");
-const { getUser, getUserByUsername, createUser } = require("../db/users");
+const {
+  getUser,
+  getUserByUsername,
+  createUser,
+  getAllUsers,
+} = require("../db/users");
 const { JWT_SECRET = "innerEarCanal" } = process.env;
+
+usersRouter.get("/", async (req, res, next) => {
+  try {
+    const users = await getAllUsers();
+    if (users) {
+      res.send(users);
+    }
+  } catch (error) {
+    throw error;
+  }
+});
 
 usersRouter.post("/", async (req, res, next) => {
   const { username } = req.body;

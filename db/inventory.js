@@ -49,17 +49,16 @@ async function getInventoryById(id) {
 }
 
 async function updateInventoryCount({ id, count }) {
-  // getting id and count all the way to here. problem is somewhere in the try.
   try {
     const {
       rows: [product],
     } = await client.query(
       `
     UPDATE products
-    SET ${count}
-    WHERE id=${id}
+    SET count=$1
+    WHERE id=$2
     RETURNING *;`,
-      id
+      [count, id]
     );
     return product;
   } catch (error) {

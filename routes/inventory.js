@@ -4,6 +4,7 @@ const {
   getInventory,
   getInventoryById,
   updateInventoryCount,
+  createInventory,
 } = require("../db/inventory");
 
 inventoryRouter.get("/", async (req, res, next) => {
@@ -13,6 +14,29 @@ inventoryRouter.get("/", async (req, res, next) => {
       res.send(inventory);
     } else {
       res.send({ message: "No Inventory found" });
+    }
+  } catch ({ name, message }) {
+    next({ name, message });
+  }
+});
+
+inventoryRouter.post("/", async (req, res, next) => {
+  const { name, description, price, count } = req.body;
+  if (!name || !description || !price || !count) {
+    next({
+      name: "MissingCredentialsError",
+      message: "Please fill out all fields",
+    });
+  }
+  try {
+    const product = await createInventory({ name, description, price, count });
+    if (product) {
+      res.send(product);
+    } else {
+      next({
+        name: "IncorrectCredentialsError",
+        message: "One of your fields is fucked up man!",
+      });
     }
   } catch ({ name, message }) {
     next({ name, message });

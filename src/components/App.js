@@ -22,6 +22,7 @@ import {
   SingleProduct,
   Payment,
   Login,
+  Admin,
 } from "./";
 import { getToken } from "../auth";
 import { getInventory } from "../api";
@@ -76,6 +77,9 @@ const App = () => {
           </Route>
           <Route path="/register">
             <Register />
+          </Route>
+          <Route path="/admin">
+            <Admin allInventory={allInventory} />
           </Route>
 
           <Route path="/">
