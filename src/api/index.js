@@ -49,9 +49,11 @@ export async function getInventoryById(id) {
 }
 
 export async function updateProductCount(id, count) {
-  // console.log(id, count, "id and count"); we are getting this.
+  // console.log("can we see this?"); yes can see it
+  // console.log(id, count, "id and count"); //we are getting this.
   try {
-    const { data } = await axios.patch(`${BASE}/inventory${id}`, {
+    const { data } = await axios.patch(`${BASE}/inventory`, {
+      id,
       count,
     });
     // console.log(data, "data in api"); not getting this.

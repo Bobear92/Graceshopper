@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import "./User.css";
-import { SingleProductCard, SingleHistoryCard, OrderHistory } from ".";
+import { SingleProductCard, OrderHistory } from ".";
 import { getUserByUsername, history } from "../api";
 import { getUser } from "../auth";
 
