@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import "./Admin.css";
 import { getUsers } from "../api";
-import { SingleUserCard, SingleProductCard, AddProduct } from ".";
+import { SingleUserCard, SingleProductAdminCard, AddProduct } from ".";
 
 const Admin = ({ allInventory }) => {
   const [users, setUsers] = useState([]);
@@ -39,7 +39,7 @@ const Admin = ({ allInventory }) => {
         {allInventory.map((product) => {
           return (
             <Fragment key={`products in  admin inventory: ${product.id}`}>
-              <SingleProductCard product={product} />
+              <SingleProductAdminCard product={product} />
             </Fragment>
           );
         })}

@@ -73,14 +73,11 @@ export async function getInventoryById(id) {
 }
 
 export async function updateProductCount(id, count) {
-  // console.log("can we see this?"); yes can see it
-  // console.log(id, count, "id and count"); //we are getting this.
   try {
     const { data } = await axios.patch(`${BASE}/inventory`, {
       id,
       count,
     });
-    // console.log(data, "data in api"); not getting this.
     return data;
   } catch (error) {
     throw error;
@@ -117,6 +114,15 @@ export async function getUserByUsername(username) {
     const { data } = await axios.post(`${BASE}/users`, {
       username,
     });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function deleteProduct(id) {
+  try {
+    const { data } = await axios.delete(`${BASE}/inventory/${id}`, {});
     return data;
   } catch (error) {
     throw error;

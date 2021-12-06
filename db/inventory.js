@@ -66,9 +66,28 @@ async function updateInventoryCount({ id, count }) {
   }
 }
 
+async function deleteProduct(id) {
+  try {
+    const {
+      rows: [product],
+    } = await client.query(
+      `
+    DELETE FROM products
+    where id = $1
+    RETURNING *;
+    `,
+      [id]
+    );
+    return product;
+  } catch (error) {
+    throw error;
+  }
+}
+
 module.exports = {
   createInventory,
   getInventory,
   updateInventoryCount,
   getInventoryById,
+  deleteProduct,
 };

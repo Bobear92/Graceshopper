@@ -34,7 +34,7 @@ const Register = ({ setLoggedIn }) => {
               setPassword("");
               setError("");
             } catch (error) {
-              console.log(error.response);
+              console.log(error.response.data.error);
               setError(error);
             }
           }}
@@ -66,7 +66,7 @@ const Register = ({ setLoggedIn }) => {
           </fieldset>
 
           <button className="register-interface-button">Submit</button>
-          {/* {error ? <p>{error.response.data.message}</p> : null} */}
+          {error ? <p>{error.response.data.error}</p> : null}
         </form>
       </div>
     </div>

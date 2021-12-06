@@ -5,13 +5,12 @@ import { getUserByUsername } from "../api";
 import { Title } from ".";
 import "./Header.css";
 const Header = ({ loggedIn, setLoggedIn }) => {
-  const [user, setUser] = useState({});
   const [admin, setAdmin] = useState(false);
   const username = getUser();
 
   const handleUser = async () => {
     const user = await getUserByUsername(username);
-    setUser(user);
+
     if (user.admin) {
       setAdmin(true);
     }

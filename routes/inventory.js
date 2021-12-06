@@ -5,6 +5,7 @@ const {
   getInventoryById,
   updateInventoryCount,
   createInventory,
+  deleteProduct,
 } = require("../db/inventory");
 
 inventoryRouter.get("/", async (req, res, next) => {
@@ -77,6 +78,15 @@ inventoryRouter.patch("/", async (req, res, next) => {
     res.send(updateCount);
   } catch (error) {
     next({ name: "MissingFieldsError", message: "Missing Information" });
+  }
+});
+
+inventoryRouter.delete("/:productId", async (req, res, next) => {
+  const id = req.params.productId;
+  try {
+    const destroyed = await deleteProduct(id);
+  } catch (error) {
+    next(error);
   }
 });
 
