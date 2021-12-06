@@ -16,7 +16,6 @@ const AddProduct = () => {
         onSubmit={async (event) => {
           //   event.preventDefault();
           try {
-            setPrice(price * 100);
             const data = await createProduct({
               name,
               description,
@@ -28,7 +27,7 @@ const AddProduct = () => {
             setPrice(0);
             setCount(0);
           } catch (error) {
-            console.log(error.response);
+            console.log(error.response.data.error);
             setError(error);
           }
         }}
@@ -86,7 +85,7 @@ const AddProduct = () => {
         <button type="submit" className="add-product-interface-button">
           Submit
         </button>
-        {error && <p>{error.response}</p>}
+        {error && <p>{error.response.data.error}</p>}
       </form>
     </div>
   );

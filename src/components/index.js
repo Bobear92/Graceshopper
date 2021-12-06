@@ -13,3 +13,4 @@ export { default as OrderHistory } from "./OrderHistory";
 export { default as Admin } from "./Admin";
 export { default as SingleUserCard } from "./SingleUserCard";
 export { default as AddProduct } from "./AddProduct";
+export { default as SingleProductAdminCard } from "./SingleProductAdminCard";

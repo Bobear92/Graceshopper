@@ -2,6 +2,7 @@
   border: 1px solid black;
   background-color: rgb(203, 223, 235);
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
 }

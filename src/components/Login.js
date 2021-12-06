@@ -28,7 +28,7 @@ const Login = ({ setLoggedIn }) => {
               setPassword("");
               setError("");
             } catch (error) {
-              console.log(error.response);
+              console.log(error.response.data.error);
               setError(error);
             }
           }}
@@ -63,7 +63,7 @@ const Login = ({ setLoggedIn }) => {
           <button className="login-interface-button" path="/">
             Login!
           </button>
-          {error && <p>{error.response}</p>}
+          {error && <p>{error.response.data.error}</p>}
         </form>
       </div>
     </div>
