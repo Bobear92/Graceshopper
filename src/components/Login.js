@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./Login.css";
 import { loginUser } from "../api";
 import { storeToken, storeUser } from "../auth";
@@ -7,6 +8,7 @@ const Login = ({ setLoggedIn }) => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
+  let history = useHistory();
   return (
     <div className="main-container">
       <div className="page-title">
@@ -16,7 +18,7 @@ const Login = ({ setLoggedIn }) => {
         <form
           id="login"
           onSubmit={async (event) => {
-            // event.preventDefault();
+            event.preventDefault();
 
             try {
               const { token, user } = await loginUser(username, password);
@@ -27,6 +29,7 @@ const Login = ({ setLoggedIn }) => {
               setUsername("");
               setPassword("");
               setError("");
+              history.push("/");
             } catch (error) {
               console.log(error.response.data.error);
               setError(error);

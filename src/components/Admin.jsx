@@ -25,6 +25,8 @@ const Admin = ({ allInventory }) => {
                 <SingleUserCard
                   key={`users in admin map:${user.id}`}
                   user={user}
+                  users={users}
+                  setUsers={setUsers}
                 />
               );
             })

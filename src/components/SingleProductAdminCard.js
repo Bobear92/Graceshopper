@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./SingleProductAdminCard.css";
 import { getUser } from "../auth";
-import { getUserByUsername } from "../api";
+import { getUserByUsername, deleteProduct } from "../api";
 
 const SingleProductAdminCard = ({ product }) => {
   const [admin, setAdmin] = useState(false);
@@ -31,7 +31,19 @@ const SingleProductAdminCard = ({ product }) => {
         <p className="single-product-card-count">
           Items in stock: {product.count}
         </p>
-        {admin ? <button>Delete Product</button> : null}
+        {admin ? (
+          <button
+            onClick={async () => {
+              try {
+                await deleteProduct(product.id);
+              } catch (error) {
+                throw error;
+              }
+            }}
+          >
+            Delete Product
+          </button>
+        ) : null}
       </div>
     </div>
   );

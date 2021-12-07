@@ -26,10 +26,10 @@ const OrderHistory = ({ history }) => {
     <div className="order-history-main-container">
       <p>Order</p>
       {orderHistory && orderHistory.length
-        ? orderHistory.map((product) => {
+        ? orderHistory.map((product, idx) => {
             return (
               <SingleProductCard
-                key={`order history key:${product.id} ${history.id}`}
+                key={`order history key:${product.id} ${history.id}: ${idx}`}
                 product={product}
               />
             );

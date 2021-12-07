@@ -6,6 +6,8 @@ const {
   getUserByUsername,
   createUser,
   getAllUsers,
+  deleteUser,
+  kingMe,
 } = require("../db/users");
 const { JWT_SECRET = "innerEarCanal" } = process.env;
 
@@ -127,6 +129,27 @@ usersRouter.post("/register", async (req, res, next) => {
     }
   } catch (error) {
     next(error);
+  }
+});
+
+usersRouter.delete("/:userId", async (req, res, next) => {
+  const id = req.params.userId;
+  try {
+    const destroyed = await deleteUser(id);
+    res.send(destroyed);
+  } catch (error) {
+    next(error);
+  }
+});
+
+usersRouter.patch("/:userId", async (req, res, next) => {
+  const id = req.params.userId;
+  try {
+    const king = await kingMe(id);
+    console.log(king, "king in routes");
+    res.send(king);
+  } catch (error) {
+    next({ name: "Status", message: "Already Admin" });
   }
 });
 
