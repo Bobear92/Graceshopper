@@ -109,6 +109,8 @@ hey nerd
 
 buy some damn earplugs
 
+if your reading this you probably can't hear anything you deaf bastard
+
 Site name options:
 
 Sleepy time earplugs - site name
