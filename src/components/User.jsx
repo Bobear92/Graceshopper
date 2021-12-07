@@ -28,9 +28,9 @@ const User = ({ cart }) => {
   return (
     <>
       <div className="cart-main-container">Cart</div>
-      {cart.map((item) => {
+      {cart.map((item, idx) => {
         return (
-          <Fragment key={`items in cart: ${item.id}`}>
+          <Fragment key={`items in cart: ${item.id}; ${idx} `}>
             <SingleProductCard product={item} />
           </Fragment>
         );
@@ -41,9 +41,9 @@ const User = ({ cart }) => {
       <div className="history-main-container">
         <p>Order History</p>
         {orderHistory && orderHistory.length
-          ? orderHistory.map((item) => {
+          ? orderHistory.map((item, idx) => {
               return (
-                <Fragment key={`history: ${item.id}`}>
+                <Fragment key={`history: ${item.id}; ${idx}; ${idx}`}>
                   <OrderHistory history={item} />
                 </Fragment>
               );

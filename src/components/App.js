@@ -73,10 +73,10 @@ const App = () => {
             <User cart={cart} />
           </Route>
           <Route path="/login">
-            <Login />
+            <Login setLoggedIn={setLoggedIn} />
           </Route>
           <Route path="/register">
-            <Register />
+            <Register setLoggedIn={setLoggedIn} />
           </Route>
           <Route path="/admin">
             <Admin allInventory={allInventory} />

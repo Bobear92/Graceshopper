@@ -128,3 +128,21 @@ export async function deleteProduct(id) {
     throw error;
   }
 }
+
+export async function deleteUser(id) {
+  try {
+    const { data } = await axios.delete(`${BASE}/users/${id}`, {});
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function kingMe(id) {
+  try {
+    const { data } = await axios.patch(`${BASE}/users/${id}`, {});
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
