@@ -12,7 +12,7 @@ const Login = ({ setLoggedIn }) => {
   return (
     <div className="main-container">
       <div className="page-title">
-        <h1>Welcome back!</h1>
+        <h1>Welcome Back Ear Hole Pal!</h1>
       </div>
       <div className="login-interface-main">
         <form

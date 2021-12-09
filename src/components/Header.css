@@ -1,7 +1,10 @@
 .header-container {
   display: flex;
   justify-content: space-between;
-  /* background: chartreuse; */
+  background-image: url("https://thumbs.dreamstime.com/b/human-ear-incoming-vibrations-different-frequencies-d-illustration-192284808.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
   flex-direction: row;
   height: 150px;
 }

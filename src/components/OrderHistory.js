@@ -24,7 +24,6 @@ const OrderHistory = ({ history }) => {
 
   return (
     <div className="order-history-main-container">
-      <p>Order</p>
       {orderHistory && orderHistory.length
         ? orderHistory.map((product, idx) => {
             return (

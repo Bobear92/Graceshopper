@@ -109,9 +109,33 @@ async function populateInitialData() {
             count: 200,
           },
           {
-            name: "Tiny boy ear plugs",
-            description: "For someone with puny little ear holes",
+            name: "Tiny boy Earplugs",
+            description: "For someone with puny little ear holes.",
             price: 1795,
+            count: 200,
+          },
+          {
+            name: "Goldie Locks Earplugs",
+            description: "Not too big, not too small.",
+            price: 1000000,
+            count: 200,
+          },
+          {
+            name: "Organic Earplugs",
+            description: "Green.",
+            price: 5000,
+            count: 200,
+          },
+          {
+            name: "Space Plugs",
+            description: "You won't hear anyone scream.",
+            price: 2500,
+            count: 200,
+          },
+          {
+            name: "Extreme Earplugs",
+            description: "Don't even try.",
+            price: 310000,
             count: 200,
           },
         ];

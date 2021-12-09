@@ -89,7 +89,11 @@ It will also create a postgres database for you, on the free tier.
 
 ### Deploying
 
-Once you've built the front-end you're ready to deploy, simply run `git push heroku main:master`. Note, your git has to be clean for this to work (which is why our two git commands live as part of getting ready to deploy, above).
+1 api client index switch to right url
+2 run `git push heroku main`
+3 run `heroku run npm run db:build`
+
+Once you've built the front-end you're ready to deploy, simply run `git push heroku main`. Note, your git has to be clean for this to work (which is why our two git commands live as part of getting ready to deploy, above).
 
 This will send off the new code to heroku, will install the node modules on their server, and will run `npm start`, starting up your express server.
 
