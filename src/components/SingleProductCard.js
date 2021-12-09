@@ -8,6 +8,9 @@ const SingleProductCard = ({ product }) => {
       <Link to={`/single-product/${product.id}`}>
         <h1 className="single-product-card-name">{product.name}</h1>
       </Link>
+      <div>
+        <img src="https://rukminim1.flixcart.com/image/312/312/j2c6du80/ear-and-nose-plug/y/q/6/soundproof-earplugs-soft-protector-noise-reduction-travel-sleep-original-imaetzzwvbmsm2wc.jpeg?q=70"></img>
+      </div>
       <h3 className="single-product-card-description">{product.description}</h3>
       <div className="single-product-card-inner-container">
         <p className="single-product-card-price">

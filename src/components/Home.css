@@ -1,0 +1,12 @@
+.home-text-container {
+  border: 1px solid black;
+  margin: 5%;
+  padding-top: 0.1%;
+  padding-left: 2%;
+  background-color: cornflowerblue;
+}
+
+.home-image-container {
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -6,8 +6,9 @@
 
 .page-title {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-self: center;
+  align-items: center;
   background: rgb(98, 80, 145);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.493);
   border: 5px solid rgb(73, 56, 116);

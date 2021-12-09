@@ -27,17 +27,22 @@ const User = ({ cart }) => {
 
   return (
     <>
-      <div className="cart-main-container">Cart</div>
-      {cart.map((item, idx) => {
-        return (
-          <Fragment key={`items in cart: ${item.id}; ${idx} `}>
-            <SingleProductCard product={item} />
-          </Fragment>
-        );
-      })}
-      <NavLink className="nav-checkout-button" to="/payment">
-        Checkout
-      </NavLink>
+      <div className="cart-main-container">
+        <h1 className="cart-label">Cart</h1>
+
+        <div className="cart-items-container">
+          {cart.map((item, idx) => {
+            return (
+              <Fragment key={`items in cart: ${item.id}; ${idx} `}>
+                <SingleProductCard product={item} />
+              </Fragment>
+            );
+          })}
+        </div>
+        <NavLink className="nav-checkout-button" to="/payment">
+          Checkout
+        </NavLink>
+      </div>
       <div className="history-main-container">
         <p>Order History</p>
         {orderHistory && orderHistory.length

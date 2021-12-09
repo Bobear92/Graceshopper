@@ -14,7 +14,8 @@ const Register = ({ setLoggedIn }) => {
   return (
     <div className="main-container">
       <div className="page-title">
-        <h1>Register Now</h1>
+        <h1>Register now!</h1>
+        <h2>Join the Ear Hole Pal Team!</h2>
       </div>
       <div className="register-interface-main">
         <form

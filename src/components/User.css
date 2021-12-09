@@ -1,0 +1,14 @@
+.cart-main-container {
+  border: 5px solid black;
+}
+.cart-label {
+  text-decoration: underline;
+  margin-left: 50%;
+}
+
+.cart-items-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 5px solid black;
+}

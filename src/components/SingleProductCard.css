@@ -1,4 +1,7 @@
 .single-product-card-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: 1px solid black;
   padding: 1rem;
   width: fit-content;
