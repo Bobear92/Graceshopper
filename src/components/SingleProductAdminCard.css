@@ -1,0 +1,71 @@
+.single-product-card-main-container {
+  border-radius: 7%;
+  border: black 3px solid;
+  background: linear-gradient(73deg, rgb(140, 241, 255), rgb(28, 63, 112));
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.87);
+  margin: 15px;
+}
+
+.single-product-card-inner-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.single-butt {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  color: rgb(252, 214, 0);
+  padding: 8px;
+  font-family: monospace;
+  font-weight: bold;
+  border-radius: 5%;
+  text-decoration-line: none;
+  background-color: rgb(8, 93, 133);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  margin: 3px;
+}
+.single-butt:hover {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  color: rgb(8, 93, 133);
+  padding: 8px;
+  font-family: monospace;
+  font-weight: bold;
+  border-radius: 5%;
+  text-decoration-line: none;
+  background-color: rgb(252, 214, 0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  margin: 3px;
+}
+
+.single-product-card-price {
+  color: rgb(2, 2, 87);
+  font-family: monospace;
+  font-weight: bold;
+}
+.single-product-card-count {
+  color: rgb(2, 2, 87);
+  font-family: monospace;
+  font-weight: bold;
+}
+.single-product-card-description {
+  color: rgb(2, 2, 87);
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.single-product-card-name {
+  display: flex;
+  justify-content: center;
+  color: rgb(252, 214, 0);
+  padding: 8px;
+  font-family: ubuntu;
+  border-radius: 5%;
+  text-decoration-line: none;
+  background-color: rgb(55, 39, 73);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  margin: 3px;
+}

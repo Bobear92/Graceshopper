@@ -21,8 +21,10 @@ const Admin = ({ allInventory }) => {
     <div className="outer-container">
       <div className="admin-main-component">
         <div>
-          <div className="admin-title">
-            <h1>Administration</h1>
+          <div className="admin-outer">
+            <div className="admin-title">
+              <h1>Administration</h1>
+            </div>
           </div>
           <div className="admin-butts">
             <button
@@ -33,7 +35,7 @@ const Admin = ({ allInventory }) => {
                 setUserToggle(true);
               }}
             >
-              users
+              Users
             </button>
             <button
               className="admin-butt"
@@ -57,11 +59,13 @@ const Admin = ({ allInventory }) => {
             </button>
           </div>
         </div>
-
+        <div className="border"></div>
         {userToggle ? (
           <div className="admin-users">
-            <div className="user-title">
-              <p>All sites users</p>
+            <div className="outer-container">
+              <div className="user-title">
+                <p>All site's users</p>
+              </div>
             </div>
             <div className="user-cards">
               {users && users.length
@@ -81,20 +85,34 @@ const Admin = ({ allInventory }) => {
             </div>
           </div>
         ) : createToggle ? (
-          <div>
-            <p>Add a new product to the inventory</p>
+          <div className="admin-create">
+            <div className="admin-outer">
+              <div className="admin-create-title">
+                <p>Add a new product to the inventory</p>
+              </div>
+            </div>
             <AddProduct />
           </div>
         ) : InventoryToggle ? (
           <div className="admin-inventory">
-            <p>All the inventory currently on the site</p>
-            {allInventory.map((product) => {
-              return (
-                <Fragment key={`products in  admin inventory: ${product.id}`}>
-                  <SingleProductAdminCard product={product} />
-                </Fragment>
-              );
-            })}
+            <div className="admin-outer">
+              <div className="admin-invi-title">
+                <p>All the inventory currently on the site</p>
+              </div>
+            </div>
+            <div className="invi-cards">
+              {allInventory.map((product) => {
+                return (
+                  <div className="invi-card">
+                    <Fragment
+                      key={`products in  admin inventory: ${product.id}`}
+                    >
+                      <SingleProductAdminCard product={product} />
+                    </Fragment>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         ) : null}
       </div>

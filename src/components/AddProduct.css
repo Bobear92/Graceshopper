@@ -1,0 +1,44 @@
+.add-product-main-component {
+  border: 2px solid black;
+}
+
+fieldset {
+  border: 0;
+}
+
+#description {
+  width: 55%;
+  height: 32px;
+}
+
+#price {
+  width: 20%;
+}
+#count {
+  width: 10%;
+}
+
+label {
+  display: flex;
+  justify-content: start;
+}
+
+.button-outer {
+  display: flex;
+  justify-content: center;
+}
+
+.add-product-interface-button {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  color: rgb(252, 214, 0);
+  padding: 8px;
+  font-family: monospace;
+  font-weight: bold;
+  border-radius: 5%;
+  text-decoration-line: none;
+  background-color: rgb(8, 93, 133);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  margin: 3px;
+}

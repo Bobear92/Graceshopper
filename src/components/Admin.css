@@ -11,12 +11,26 @@
   margin: 0px;
 }
 
+.border {
+  border-bottom: 5px solid black;
+}
+.admin-outer {
+  display: flex;
+  justify-content: center;
+}
+
 .admin-title {
   display: flex;
   justify-content: center;
   font-family: monospace;
   font-weight: bold;
-  font-size: 26px;
+  font-size: 15px;
+  margin: 20px;
+  padding: 10px;
+  color: rgb(2, 2, 87);
+  border: black 3px solid;
+  background: linear-gradient(73deg, rgb(140, 241, 255), rgb(28, 63, 112));
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.87);
 }
 
 .admin-butts {
@@ -44,20 +58,25 @@
   flex-direction: column;
 }
 
+/* user */
+
 .user-title {
   display: flex;
   justify-content: center;
   color: rgb(2, 2, 87);
   font-family: monospace;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 20px;
+  margin: 15px;
+  padding: 10px;
+  border: black 3px solid;
+  background: linear-gradient(73deg, rgb(140, 241, 255), rgb(28, 63, 112));
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.87);
 }
 
 .admin-users {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
-  background: linear-gradient(73deg, rgb(140, 241, 255), rgb(28, 63, 112));
 }
 .user-cards {
   display: flex;
@@ -67,11 +86,46 @@
 .user-indi-card {
   border-radius: 7%;
   border: black 3px solid;
-  background: rgba(0, 0, 0, 0.384);
+  background: linear-gradient(73deg, rgb(140, 241, 255), rgb(28, 63, 112));
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.87);
   margin: 15px;
 }
 
-.admin-inventory {
-  border: 1px solid black;
+/* inventory */
+
+.admin-invi-title {
+  display: flex;
+  justify-content: center;
+  color: rgb(2, 2, 87);
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 15px;
+  border: black 3px solid;
+  background: linear-gradient(73deg, rgb(140, 241, 255), rgb(28, 63, 112));
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.87);
+  width: 33%;
+}
+
+.invi-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* create */
+
+.admin-create-title {
+  display: flex;
+  justify-content: center;
+  color: rgb(2, 2, 87);
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 15px;
+  padding: 10px;
+  border: black 3px solid;
+  background: linear-gradient(73deg, rgb(140, 241, 255), rgb(28, 63, 112));
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.87);
 }
