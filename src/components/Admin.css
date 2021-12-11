@@ -1,6 +1,77 @@
-.admin-users {
-  border: 1px solid black;
+.outer-container {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(rgba(52, 73, 94, 0.74), rgba(52, 73, 94, 0.74)),
+    url("https://i.stack.imgur.com/4WXsM.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100% 100%;
+
+  margin: 0px;
 }
+
+.admin-title {
+  display: flex;
+  justify-content: center;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.admin-butts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.admin-butt {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  color: rgb(252, 214, 0);
+  padding: 8px;
+  font-family: monospace;
+  font-weight: bold;
+  border-radius: 5%;
+  text-decoration-line: none;
+  background-color: rgb(8, 93, 133);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  margin: 3px;
+}
+.admin-main-component {
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+}
+
+.user-title {
+  display: flex;
+  justify-content: center;
+  color: rgb(2, 2, 87);
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.admin-users {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  background: linear-gradient(73deg, rgb(140, 241, 255), rgb(28, 63, 112));
+}
+.user-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.user-indi-card {
+  border-radius: 7%;
+  border: black 3px solid;
+  background: rgba(0, 0, 0, 0.384);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.87);
+  margin: 15px;
+}
+
 .admin-inventory {
   border: 1px solid black;
 }

@@ -15,12 +15,13 @@ const SingleUserCard = ({ user, users, setUsers }) => {
   }
   return (
     <div className="single-user-card-main-component">
-      <div>
-        <p>User:{user.username}</p>
-        <p>Admin Status:{user.admin.toString()}</p>
+      <div className="demographics">
+        <p>User: {user.username}</p>
+        <p>Admin Status: {user.admin.toString()}</p>
       </div>
       <div className="single-user-card-buttons">
         <button
+          className="single-butt"
           onClick={async () => {
             try {
               const kingUser = await kingMe(user.id);
@@ -35,6 +36,7 @@ const SingleUserCard = ({ user, users, setUsers }) => {
           Promote to admin.
         </button>
         <button
+          className="single-butt"
           onClick={async () => {
             try {
               await deleteUser(user.id);
