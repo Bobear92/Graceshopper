@@ -33,7 +33,7 @@ const AddProduct = () => {
         }}
       >
         <fieldset className="add-product-input">
-          <label htmlFor="name">name </label>
+          <label htmlFor="name">Name </label>
           <input
             id="name"
             type="text"
@@ -47,7 +47,7 @@ const AddProduct = () => {
 
         <fieldset className="add-product-description-input">
           <label htmlFor="description">Description </label>
-          <input
+          <textarea
             id="description"
             type="text"
             placeholder="Enter description"
@@ -55,7 +55,7 @@ const AddProduct = () => {
             onChange={(event) => {
               setDescription(event.target.value);
             }}
-          ></input>
+          ></textarea>
         </fieldset>
         <fieldset className="add-product-input">
           <label htmlFor="price">Price </label>
@@ -82,9 +82,11 @@ const AddProduct = () => {
           ></input>
         </fieldset>
 
-        <button type="submit" className="add-product-interface-button">
-          Submit
-        </button>
+        <div className="button-outer">
+          <button type="submit" className="add-product-interface-button">
+            Submit
+          </button>
+        </div>
         {error && <p>{error.response.data.error}</p>}
       </form>
     </div>

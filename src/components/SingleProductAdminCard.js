@@ -33,6 +33,7 @@ const SingleProductAdminCard = ({ product }) => {
         </p>
         {admin ? (
           <button
+            className="single-butt"
             onClick={async () => {
               try {
                 await deleteProduct(product.id);
