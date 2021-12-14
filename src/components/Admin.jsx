@@ -62,7 +62,7 @@ const Admin = ({ allInventory }) => {
         <div className="border"></div>
         {userToggle ? (
           <div className="admin-users">
-            <div className="outer-container">
+            <div className="admin-outer">
               <div className="user-title">
                 <p>All site's users</p>
               </div>
