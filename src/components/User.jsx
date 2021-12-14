@@ -39,17 +39,26 @@ const User = ({ cart }) => {
             );
           })}
         </div>
-        <NavLink className="nav-checkout-button" to="/payment">
-          Checkout
-        </NavLink>
+        <div className="user-checkout-outer">
+          <NavLink className="nav-checkout-button" to="/payment">
+            Checkout!
+          </NavLink>
+        </div>
       </div>
-      <div className="history-main-container">
-        <p>Order History</p>
+      <div className="soggy-bottom-boy"></div>
+      <div className="history-outer-container">
+        <div className="history-main-container">
+          <h1>Order History</h1>
+        </div>
+      </div>
+
+      <div className="order-history-map">
         {orderHistory && orderHistory.length
           ? orderHistory.map((item, idx) => {
               return (
                 <Fragment key={`history: ${item.id}; ${idx}; ${idx}`}>
                   <OrderHistory history={item} />
+                  <div className="history-border"></div>
                 </Fragment>
               );
             })

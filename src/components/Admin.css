@@ -1,13 +1,13 @@
 .outer-container {
   display: flex;
   justify-content: center;
-  background: linear-gradient(rgba(52, 73, 94, 0.74), rgba(52, 73, 94, 0.74)),
-    url("https://i.stack.imgur.com/4WXsM.png") no-repeat center center fixed;
+  background: url("https://wallpaperwaifu.com/wp-content/uploads/2019/09/tron-grid-thumb.jpg")
+    no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: 100% 100%;
-
+  background-size: cover;
+  height: 100vh;
   margin: 0px;
 }
 
@@ -36,7 +36,7 @@
 .admin-butts {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .admin-butt {
   display: flex;
@@ -56,6 +56,7 @@
   display: flex;
   justify-self: center;
   flex-direction: column;
+  width: 100%;
 }
 
 /* user */
@@ -80,6 +81,7 @@
 }
 .user-cards {
   display: flex;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
 }

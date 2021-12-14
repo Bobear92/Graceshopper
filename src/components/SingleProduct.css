@@ -1,0 +1,13 @@
+.single-product-outer {
+  display: flex;
+  justify-content: center;
+}
+
+.single-product-main-container {
+  border-radius: 7%;
+  border: black 3px solid;
+  background: linear-gradient(73deg, rgb(140, 241, 255), rgb(28, 63, 112));
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.87);
+  margin: 15px;
+  padding: 15px;
+}

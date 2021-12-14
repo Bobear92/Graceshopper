@@ -1,0 +1,54 @@
+.payment-outer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.payment-p {
+  background-color: rgb(82, 29, 109);
+  display: flex;
+  justify-content: center;
+  color: rgb(252, 214, 0);
+  font-family: monospace;
+}
+.grandmaster-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.payment-button {
+  display: flex;
+  justify-content: center;
+  color: rgb(252, 214, 0);
+  padding: 8px;
+  font-family: ubuntu;
+  font-size: 75px;
+  border-radius: 5%;
+  text-decoration-line: none;
+  background-color: rgb(55, 39, 73);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  margin: 3px;
+  height: 126px;
+  width: 312px;
+}
+
+.payment-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  color: rgb(252, 214, 0);
+  font-family: monospace;
+  font-size: x-large;
+}
+.payment-price-outer {
+  display: flex;
+  justify-content: right;
+  background-color: rgb(82, 29, 109);
+}
+
+.payment-button-outer {
+  display: flex;
+  justify-content: right;
+}
