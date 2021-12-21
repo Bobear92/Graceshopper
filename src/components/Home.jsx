@@ -11,7 +11,7 @@ const Home = () => {
           All our earplugs are specifically designed for for all your various
           needs!
         </h2>
-        <h3>Loud kids? We got you covered?</h3>
+        <h3>Loud kids? We got you covered!</h3>
         <h3>
           Looking for organic non-gmo grassfed open range earplugs? We got your
           back jack!
